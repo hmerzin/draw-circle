@@ -3,6 +3,7 @@
     <head><script src="/socket.io/socket.io.js"></script></head>
 <body>
     <script>
+        const socket = io.connect('http://draw-circle.herokuapp.com/');
         socket.on('circle', data => {
             const circle = document.createElement('div');
             circle.style.width = '200px';
