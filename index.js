@@ -23,3 +23,9 @@ alexa.intent(
     res.say("check your browser");
   }
 );
+
+
+expressApp.use((req, res) => {
+  console.log(req.body);
+  res.write('ddddd');
+})
