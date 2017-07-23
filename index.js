@@ -1,5 +1,7 @@
 const express = require("express");
 const Alexa = require("alexa-app");
+const socketio = require('socket.io');
+const https = require('https');
 
 const expressApp = express();
 
@@ -24,4 +26,4 @@ alexa.intent(
   }
 );
 
-expressApp.listen(process.env.PORT || 8080);
+const server = socketio(https.createServer(expressApp).listen(process.env.PORT || 8080));
