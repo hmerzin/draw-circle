@@ -4,7 +4,7 @@
 <body>
     <script>
         const socket = io.connect('https://draw-circle.herokuapp.com/');
-        socket.on('circle', data => {
+        socket.on('draw', data => {
             console.log(data);
             const circle = document.createElement('div');
             circle.style.width = '200px';
