@@ -27,8 +27,8 @@ alexa.intent(
     }
   },
   (req, res) => {
-    res.say('check your browser');
     io.emit("draw", { circle: "circle" });
+    res.say('check your browser');
     //res.say("check your browser");
   }
 );
