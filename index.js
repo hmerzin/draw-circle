@@ -24,4 +24,4 @@ alexa.intent(
   }
 );
 
-expressApp.listen(8080);
+expressApp.listen(process.env.port);
