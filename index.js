@@ -1,7 +1,11 @@
 const express = require("express");
 const Alexa = require("alexa-app");
-const socketio = require('socket.io');
-const http = require('http');
+const socketio = require("socket.io");
+const http = require("http");
+
+const io = socketio(
+  http.createServer(expressApp).listen(process.env.PORT || 8080)
+);
 
 const expressApp = express();
 
@@ -17,13 +21,17 @@ alexa.intent(
     },
 
     slots: {
-      size: "Size",
-      color: "AMAZON.Color"
+      Size: "Size",
+      Color: "AMAZON.Color"
     }
   },
   (req, res) => {
-    res.say("check your browser");
+    res.say(req.slot("Color"));
+    io.emit("draw", { circle: "circle" });
+    //res.say("check your browser");
   }
 );
 
-const server = socketio(http.createServer(expressApp).listen(process.env.PORT || 8080));
+expressApp.get("/", (req, res) => {
+  res.sendfile('./index.html');
+});
