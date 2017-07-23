@@ -33,6 +33,11 @@ alexa.intent(
   }
 );
 
+alexa.intent('PlayVideo', {}, (req, res) => {
+  io.emit('video', {video: 'video'});
+  res.say('playing');
+})
+
 expressApp.get("/", (req, res) => {
   res.sendfile('./index.html');
 });
