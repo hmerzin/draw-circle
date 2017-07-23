@@ -27,7 +27,7 @@ alexa.intent(
     }
   },
   (req, res) => {
-    res.say(req.slot("Color"));
+    res.say('check your browser');
     io.emit("draw", { circle: "circle" });
     //res.say("check your browser");
   }
