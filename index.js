@@ -3,7 +3,7 @@ const Alexa = require("alexa-app");
 
 const expressApp = express();
 
-const alexa = Alexa.app("draw");
+const alexa = new Alexa.app("draw");
 
 alexa.express({ expressApp: expressApp });
 
