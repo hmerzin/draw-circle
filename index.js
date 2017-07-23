@@ -3,11 +3,12 @@ const Alexa = require("alexa-app");
 const socketio = require("socket.io");
 const http = require("http");
 
+const expressApp = express();
+
 const io = socketio(
   http.createServer(expressApp).listen(process.env.PORT || 8080)
 );
 
-const expressApp = express();
 
 const alexa = new Alexa.app("draw");
 
