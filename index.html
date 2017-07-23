@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head><script src="/socket.io/socket.io.js"></script></head>
+
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
 <body>
     <script>
         const socket = io.connect('https://draw-circle.herokuapp.com/');
         socket.on('draw', data => {
             console.log(data);
             const circle = document.createElement('div');
+            circle.style.backgroundColor = 'blue';
             circle.style.width = '200px';
             circle.style.height = '200px';
             circle.style.borderRadius = '100px';
-            circle.style.borderWidth = '5px';
+            container.appendChild(circle);
             document.body.appendChild(circle);
         });
     </script>
 </body>
+
 </html>
