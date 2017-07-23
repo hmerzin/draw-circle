@@ -24,10 +24,4 @@ alexa.intent(
   }
 );
 
-
-expressApp.use((req, res) => {
-  console.log(req.body);
-  res.write('ddddd');
-})
-
 expressApp.listen(8080);
