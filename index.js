@@ -28,14 +28,14 @@ alexa.intent(
   },
   (req, res) => {
     io.emit("draw", { circle: "circle" });
-    res.say('check your browser');
+    //res.say('check your browser');
     //res.say("check your browser");
   }
 );
 
 alexa.intent('PlayVideo', {}, (req, res) => {
   io.emit('video', {video: 'video'});
-  //res.say('playing');
+  res.say('playing');
 })
 
 expressApp.get("/", (req, res) => {
