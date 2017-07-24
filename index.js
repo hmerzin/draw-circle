@@ -23,8 +23,9 @@ alexa.intent(
   },
   (req, res) => {
     io.emit("draw", { circle: "circle" });
-    res.directives[0] = {type: 'Dialog.Delegate'};
-    //res.say("check your browser");
+    //res.directives[0] = {type: 'Dialog.Delegate'};
+    console.log(JSON.stringify(res));
+    res.say("check your browser");
     //res.say("check your browser");
   }
 );
