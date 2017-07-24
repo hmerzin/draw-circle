@@ -22,18 +22,27 @@ alexa.intent(
     }
   },
   (req, res) => {
-    console.log(req.slot('Color'));
+    console.log(req.slot("Color"));
     io.emit("draw", { circle: "circle" });
     //res.directives[0] = {type: 'Dialog.Delegate'};
     //console.log(JSON.stringify(res));
-    console.log("DRAW RECIEVED");
-    res.directive({
-      type: "Dialog.Delegate"
-    });
     res.shouldEndSession(true);
+    if (req.slot("Color")) {
+      io.emit("color", { color: req.slot("Color") });
+    }
+
+    if (req.slot("Size")) {
+      io.emit("size", { size: req.slot("Size") });
+    }
+
     console.log("completed: " + req.getDialog().isCompleted());
-    if(!req.getDialog().isCompleted()) {
+    if (!req.getDialog().isCompleted()) {
+      res.directive({
+        type: "Dialog.Delegate"
+      });
       res.shouldEndSession(false);
+    } else {
+      res.say("check your browser");
     }
     //res.say("check your browser");
   }

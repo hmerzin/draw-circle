@@ -20,9 +20,6 @@
         const socket = io.connect('https://draw-circle.herokuapp.com/');
         const circle = document.createElement('div');
         socket.on('draw', data => {
-            console.log(data);
-            //const circle = document.createElement('div');
-            //circle.style.backgroundColor = 'blue';
             circle.style.borderWidth = '5px';
             circle.style.borderColor = 'black';
             circle.style.width = '200px';
@@ -34,7 +31,21 @@
         socket.on('color', color => {
             circle.style.backgroundColor = color.color;
             circle.style.borderWidth = '0px';
-        })
+        });
+
+        socket.on('size', size => {
+            switch (size.size) {
+                case large: 
+                    circle.style.width = '300px';
+                    circle.style.height = '300px';
+                    circle.style.borderRadius = '150px';
+                    break;
+                case small:
+                    circle.style.width = '100px';
+                    circle.style.height = '100px';
+                    circle.style.borderRadius = '50px';
+            }
+        });
 
         // socket.on('video', data => {
         //     player.playVideo();
