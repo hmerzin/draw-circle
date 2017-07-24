@@ -26,7 +26,7 @@ alexa.intent(
     //res.directives[0] = {type: 'Dialog.Delegate'};
     //console.log(JSON.stringify(res));
     console.log('DRAW RECIEVED');
-    res.response.response.directives.push({type: 'Dialog.Delegate'});
+    res.response.response.directives.push({type: 'Dialog.ElicitSlot', slotToElicit: 'Color'});
     res.send();
     //res.say("check your browser");
   }
