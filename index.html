@@ -24,9 +24,9 @@
             circle.style.borderColor = 'black';
             circle.style.width = '200px';
             circle.style.height = '200px';
+            circle.style.borderStyle = solid;
             circle.style.borderRadius = '100px';
             document.body.appendChild(circle);
-            console.log(circle.style.borderWidth);
         });
 
         socket.on('color', color => {
