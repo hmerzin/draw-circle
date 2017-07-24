@@ -25,7 +25,7 @@ alexa.intent(
     io.emit("draw", { circle: "circle" });
     //res.directives[0] = {type: 'Dialog.Delegate'};
     console.log(JSON.stringify(res));
-    res.response.response.directives.push(JSON.stringify({type: 'Dialog.Delegate'}));
+    res.response.response.directives.push({type: 'Dialog.Delegate'});
     res.send();
     //res.say("check your browser");
   }
