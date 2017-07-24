@@ -9,14 +9,14 @@
 <body>
     <div id="player"></div>
     <script>
-        let player;
-        function onYouTubePlayerAPIReady() {
-            player = new YT.Player('player', {
-                height: '360',
-                width: '640',
-                videoId: 'M7lc1UVf-VE'
-            });
-        }
+        // let player;
+        // function onYouTubePlayerAPIReady() {
+        //     player = new YT.Player('player', {
+        //         height: '360',
+        //         width: '640',
+        //         videoId: 'M7lc1UVf-VE'
+        //     });
+        // }
         const socket = io.connect('https://draw-circle.herokuapp.com/');
         socket.on('draw', data => {
             console.log(data);
@@ -28,9 +28,9 @@
             document.body.appendChild(circle);
         });
 
-        socket.on('video', data => {
-            player.playVideo();
-        });
+        // socket.on('video', data => {
+        //     player.playVideo();
+        // });
     </script>
 </body>
 
