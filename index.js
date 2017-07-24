@@ -16,6 +16,7 @@ alexa.express({ expressApp: expressApp });
 alexa.intent(
   "DrawIntent",
   {
+    directives: ['Dialog.Delegate'],
     dialog: {
       type: "delegate"
     },
