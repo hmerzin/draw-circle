@@ -29,6 +29,7 @@ alexa.intent(
     res.response.response.directives.push({
       type: "Dialog.Delegate"
     });
+    res.shouldEndSession(false);
     res.send();
     //res.say("check your browser");
   }
