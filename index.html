@@ -21,7 +21,7 @@
         const circle = document.createElement('div');
         socket.on('draw', data => {
             console.log(data);
-            const circle = document.createElement('div');
+            //const circle = document.createElement('div');
             //circle.style.backgroundColor = 'blue';
             circle.style.borderWidth = '5px';
             circle.style.borderColor = 'black';
@@ -32,7 +32,7 @@
         });
 
         socket.on('color', color => {
-            circle.style.backgroundColor = 'color';
+            circle.style.backgroundColor = color.color;
             circle.style.borderWidth = '0px';
         })
 
