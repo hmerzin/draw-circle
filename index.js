@@ -26,7 +26,7 @@ alexa.intent(
     //res.directives[0] = {type: 'Dialog.Delegate'};
     console.log(JSON.stringify(res));
     res.response.response.directives.push('Dialog.Delegate');
-    res.say("check your browser");
+    res.send();
     //res.say("check your browser");
   }
 );
