@@ -27,8 +27,7 @@ alexa.intent(
     //console.log(JSON.stringify(res));
     console.log("DRAW RECIEVED");
     res.response.response.directives.push({
-      type: "Dialog.ElicitSlot",
-      slotToElicit: "Color",
+      type: "Dialog.Delegate"
     });
     res.send();
     //res.say("check your browser");
