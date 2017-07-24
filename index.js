@@ -31,6 +31,7 @@ alexa.intent(
       type: "Dialog.Delegate"
     });
     res.shouldEndSession(true);
+    console.log("completed: " + req.getDialog().isCompleted());
     if(!req.getDialog().isCompleted()) {
       res.shouldEndSession(false);
     }
