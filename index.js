@@ -9,7 +9,6 @@ const io = socketio(
   http.createServer(expressApp).listen(process.env.PORT || 8080)
 );
 
-
 const alexa = new Alexa.app("draw");
 
 alexa.express({ expressApp: expressApp });
@@ -28,16 +27,16 @@ alexa.intent(
   },
   (req, res) => {
     io.emit("draw", { circle: "circle" });
-    res.say('check your browser');
+    res.say("check your browser");
     //res.say("check your browser");
   }
 );
 
-alexa.intent('PlayVideo', {}, (req, res) => {
-  io.emit('video', {video: 'video'});
-  res.say('playing');
-})
+alexa.intent("PlayVideo", {}, (req, res) => {
+  io.emit("video", { video: "video" });
+  res.say("playing");
+});
 
 expressApp.get("/", (req, res) => {
-  res.sendfile('./index.html');
+  res.sendfile("./index.html");
 });
