@@ -18,15 +18,23 @@
         //     });
         // }
         const socket = io.connect('https://draw-circle.herokuapp.com/');
+        const circle = document.createElement('div');
         socket.on('draw', data => {
             console.log(data);
             const circle = document.createElement('div');
-            circle.style.backgroundColor = 'blue';
+            //circle.style.backgroundColor = 'blue';
+            circle.style.borderWidth = '5px';
+            circle.style.borderColor = 'black';
             circle.style.width = '200px';
             circle.style.height = '200px';
             circle.style.borderRadius = '100px';
             document.body.appendChild(circle);
         });
+
+        socket.on('color', color => {
+            circle.style.backgroundColor = 'color';
+            circle.style.borderWidth = '0px';
+        })
 
         // socket.on('video', data => {
         //     player.playVideo();
