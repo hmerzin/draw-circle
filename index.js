@@ -22,10 +22,7 @@ alexa.intent(
     }
   },
   (req, res) => {
-    console.log(req);
-    if(req.slot('Color')){
-      io.emit('color', {color: req.slot('Color')});
-    }
+    console.log(slots('Color'));
     io.emit("draw", { circle: "circle" });
     //res.directives[0] = {type: 'Dialog.Delegate'};
     //console.log(JSON.stringify(res));
@@ -33,7 +30,11 @@ alexa.intent(
     res.response.response.directives.push({
       type: "Dialog.Delegate"
     });
-    res.shouldEndSession(false);
+    res.shouldEndSession(true);
+    if(!req.getDialog().isCompleted()) {
+      res.shouldEndSession(false);
+    }
+
     res.send();
     //res.say("check your browser");
   }
