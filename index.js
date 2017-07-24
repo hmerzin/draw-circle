@@ -1,5 +1,5 @@
 const express = require("express");
-const Alexa = require("alexa-app");
+const Alexa = require("./alexa-app");
 const socketio = require("socket.io");
 const http = require("http");
 

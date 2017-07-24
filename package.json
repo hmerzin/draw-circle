@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "alexa-app": "^4.0.1",
+    "alexa-app": "file:alexa-app",
     "express": "^4.15.3",
     "socket.io": "^2.0.3"
   }
