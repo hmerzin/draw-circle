@@ -27,15 +27,13 @@ alexa.intent(
     //res.directives[0] = {type: 'Dialog.Delegate'};
     //console.log(JSON.stringify(res));
     console.log("DRAW RECIEVED");
-    res.response.response.directives.push({
+    res.directive({
       type: "Dialog.Delegate"
     });
     res.shouldEndSession(true);
     if(!req.getDialog().isCompleted()) {
       res.shouldEndSession(false);
     }
-
-    res.send();
     //res.say("check your browser");
   }
 );
