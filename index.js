@@ -16,11 +16,6 @@ alexa.express({ expressApp: expressApp });
 alexa.intent(
   "DrawIntent",
   {
-    directives: ['Dialog.Delegate'],
-    dialog: {
-      type: "delegate"
-    },
-
     slots: {
       Size: "Size",
       Color: "AMAZON.Color"
@@ -28,7 +23,8 @@ alexa.intent(
   },
   (req, res) => {
     io.emit("draw", { circle: "circle" });
-    res.say("check your browser");
+    res.directive('Dialog.Delegate');
+    //res.say("check your browser");
     //res.say("check your browser");
   }
 );
