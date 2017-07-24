@@ -18,7 +18,7 @@ alexa.intent(
   "DrawIntent",
   {
     dialog: {
-      type: "delegate"
+      type: "Dialog.Delegate"
     },
 
     slots: {
