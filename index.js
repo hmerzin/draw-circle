@@ -22,7 +22,7 @@ alexa.intent(
     }
   },
   (req, res) => {
-    console.log(slots('Color'));
+    console.log(req.slots('Color'));
     io.emit("draw", { circle: "circle" });
     //res.directives[0] = {type: 'Dialog.Delegate'};
     //console.log(JSON.stringify(res));
